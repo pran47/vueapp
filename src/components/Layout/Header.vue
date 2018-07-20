@@ -3,11 +3,11 @@
   <!--============================= HEADER =============================-->
     <div class="nav-menu" id="nav">
       <div class="bg transition">
-        <div class="container-fluid fixed">
+        <div class="container-fluid fixed is-sticky">
           <div class="row">
             <div class="col-md-12">
               <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html">Listing</a>
+                <router-link to="/" class="navbar-brand">Listing</router-link>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                   aria-expanded="false" aria-label="Toggle navigation">
                   <span class="icon-menu"></span>
