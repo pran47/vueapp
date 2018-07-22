@@ -26,7 +26,7 @@
                         <span class="icon-arrow-down"></span>
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
+                        <router-link to="/Listing" class="dropdown-item">Listings</router-link>
                         <a class="dropdown-item" href="#">Another action</a>
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>

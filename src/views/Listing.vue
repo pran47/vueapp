@@ -1,11 +1,18 @@
 <template>
   <div class="listing">
     <div class="row mx-0">
-        <div class="col-md-6">
+        <div class="col-md-5">
         sdfhsjdfh
+		 <ul>
+				<li v-for="animal in animals" v-bind:key="animal.id">
+					{{ animal.name }}
+				</li>
+			  </ul>
+			  <v-paginator :options="options" :resource_url="resource_url" @update="updateResource"></v-paginator>
+			  <!-- <v-paginator resource_url="http://hootlex.github.io/vuejs-paginator/samples/animals1.json" @update="updateResource"></v-paginator> -->
         </div>
-        <div class="col-md-6 py-5 light-bg">
-            <SearchBar/>
+        <div class="col-md-7 py-5 light-bg">
+            <!-- <SearchBar/> -->
             <div class="col">
               <h5 class="mb-5">5 Results For <strong>"Restaurant"</strong></h5>
               <div class="row">
@@ -128,11 +135,37 @@
 </template>
 
 <script>
-import SearchBar from "@/components/Layout/SearchBar.vue";
+//import SearchBar from "@/components/Layout/SearchBar.vue";
+//import VuePaginator from "vuejs-paginator-axios";
+import VuePaginator from "vuejs-paginator";
+
+console.log(VuePaginator);
+
 export default {
   name: "listing",
+  data() {
+    return {
+      animals: [],
+		resource_url: 'http://hootlex.github.io/vuejs-paginator/samples/animals1.json',
+		options: {
+		remote_data: 'nested.data',
+		remote_current_page: 'nested.current_page',
+		remote_last_page: 'nested.last_page',
+		remote_next_page_url: 'nested.next_page_url',
+		remote_prev_page_url: 'nested.prev_page_url',
+		next_button_text: 'Go Next',
+		previous_button_text: 'Go Back'
+		}
+	}
+  },
   components: {
-    SearchBar
+    //SearchBar,
+    VPaginator: VuePaginator
+  },
+  methods: {
+    updateResource(data) {
+      this.animals = data;
+    }
   }
 };
 </script>

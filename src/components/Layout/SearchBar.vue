@@ -1,15 +1,17 @@
 <template>
 
-    <div>
+    <div class="mb-5 col">
         <b-form inline>
-            <label class="sr-only" for="inlineFormInputName2">Name</label>
-            <b-input class="mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Jane Doe" />
-            <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-            <b-input-group left="@" class="mb-2 mr-sm-2 mb-sm-0">
-                <b-input id="inlineFormInputGroupUsername2" placeholder="Username" />
+            <label class="sr-only" for="">Categories</label>
+            <b-input class="mr-sm-2" id="" placeholder="Categories" />
+            <label class="sr-only" for="">Location</label>
+            <b-input-group left="@" class="mr-sm-2">
+                <b-input id="" placeholder="Location" />
             </b-input-group>
-            <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
-            <b-button variant="primary">Save</b-button>
+            <label class="sr-only" for="inlineFormInputName4">Keyword</label>
+            <b-input class="mr-sm-2" id="inlineFormInputName4" placeholder="Keyword" />
+            <!-- <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox> -->
+            <b-button variant="danger" class="mt-sm-2 mt-md-0 mt-2">Search</b-button>
         </b-form>
     </div>
 
@@ -44,5 +46,12 @@
     </b-form>
   </div> -->
 </template>
-
 <!-- b-form-inline-1.vue -->
+
+<script>
+export default {
+  name: "searchbar",
+  components: {
+  }
+};
+</script>
