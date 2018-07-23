@@ -1,45 +1,91 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>vueapp</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
-	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but vueapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-    <script>		
-      // Feather Icons Init
-      feather.replace();		
-      $(document).ready(function(){			
-        $(function () {
-          $('[data-toggle="popover"]').popover();
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>vueapp</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.6.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=yourKey"></script> -->
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vueapp doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    // Feather Icons Init
+    feather.replace();
+    // Wow init
+    new WOW().init();
+
+    $(document).ready(function () {
+      $(function () {
+        $('[data-toggle="popover"]').popover();
+      });
+      /*
+      $(window).scroll(function() {
+            // 100 = The point you would like to fade the nav in.
+            if ($(window).scrollTop() > 100) {
+                $('.fixed').addClass('is-sticky');
+            } else {
+                $('.fixed').removeClass('is-sticky');
+            };
+      });				
+      */
+/*
+      var locations = [
+        ['Bondi Beach', -33.890542, 151.274856, 4],
+        ['Coogee Beach', -33.923036, 151.259052, 5],
+        ['Cronulla Beach', -34.028249, 151.157507, 3],
+        ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+        ['Maroubra Beach', -33.950198, 151.259302, 1]
+      ];
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: new google.maps.LatLng(-33.92, 151.25),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      var infowindow = new google.maps.InfoWindow();
+
+      var marker, i;
+
+      for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+          map: map
         });
-        /*
-        $(window).scroll(function() {
-              // 100 = The point you would like to fade the nav in.
-              if ($(window).scrollTop() > 100) {
-                  $('.fixed').addClass('is-sticky');
-              } else {
-                  $('.fixed').removeClass('is-sticky');
-              };
-        });				
-        */	
-      });		
-    </script>	
-  </body>
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+          return function () {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+          }
+        })(marker, i));
+      }
+*/
+    });
+  </script>
+</body>
+
 </html>

@@ -51,7 +51,6 @@
 <script>
 export default {
   name: "searchbar",
-  components: {
-  }
+  components: {}
 };
 </script>

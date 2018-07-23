@@ -9,10 +9,15 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "google-maps": "^3.3.0",
     "vue": "^2.5.16",
+    "vue-animejs": "^1.0.1",
+    "vue-google-maps": "^0.1.21",
+    "vue-infinite-loading": "^2.3.1",
     "vue-router": "^3.0.1",
-    "vuejs-paginator": "^2.0.2",
+    "vue-wow": "^1.1.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
@@ -24,8 +29,7 @@
     "@vue/test-utils": "^1.0.0-beta.20",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.0.1",
-    "vue-template-compiler": "^2.5.16",
-    "vuejs-paginator-axios": "^2.0.1"
+    "vue-template-compiler": "^2.5.16"
   },
   "browserslist": [
     "> 1%",
