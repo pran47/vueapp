@@ -36,7 +36,7 @@
 			   <div class="row">
 				<div class="col-md-4 featured-responsive mb-4" v-for="(item, key) in list" v-bind:key="item.id">
 					<div class="featured-place-wrap wow fadeInUp">
-						 <router-link to="/view">
+						 <router-link :to="{ name: 'view', params: { userId: key + 1 }}">
 							<img src="@/assets/images/featured1.jpg" class="img-fluid" alt="#">
 							<span class="featured-rating-orange">6.5</span>
 							<div class="featured-title-box">

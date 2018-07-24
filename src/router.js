@@ -25,9 +25,10 @@ export default new Router({
       component: Listing
     },
     {
-      path: "/view",
+      path: "/view/:id",
       name: "view",
-      component: ViewPage
+      component: ViewPage,
+      props: true
     }
   ]
 });
