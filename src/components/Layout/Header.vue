@@ -17,9 +17,6 @@
                     <li class="nav-item active">
                       <router-link to="/" class="nav-link">Home</router-link>
                     </li>
-                    <li class="nav-item">
-                      <router-link to="/about" class="nav-link">About</router-link>
-                    </li>
                     <li class="nav-item dropdown">
                       <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Explore
@@ -31,10 +28,14 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                       </div>
                     </li>
-                    <li>
-                      <a href="#" class="btn btn-outline-light top-btn">
-                        <span class="ti-plus"></span> Add Listing</a>
+                    <li class="nav-item">
+                      <router-link to="/about" class="nav-link">About</router-link>
                     </li>
+                    <!--<li>
+                      <a href="#" class="btn btn-outline-light top-btn">
+                        <span class="ti-plus"></span> Add Listing
+                      </a>
+                    </li>-->
                   </ul>
                 </div>
               </nav>

@@ -22,7 +22,8 @@ export default new Router({
     {
       path: "/listing",
       name: "listing",
-      component: Listing
+      component: Listing,
+      props: true
     },
     {
       path: "/view/:id",

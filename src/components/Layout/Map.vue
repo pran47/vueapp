@@ -6,7 +6,7 @@
 import GoogleMapsLoader from "google-maps";
 
 export default {
-  name: "hello",
+  name: "googleMap",
   data() {
     return {
       msg: ""

@@ -7,7 +7,7 @@
                 <div class="row mx-0 mb-3">
                     <ol class="breadcrumb col-md-6 small bg-white">
                         <li class="breadcrumb-item">
-                            <router-link to="/">Home</router-link>
+                            <router-link to="/" class="text-dark">Home</router-link>
                         </li>
                         <li class="breadcrumb-item active">Single</li>
                     </ol>
@@ -95,7 +95,7 @@
                     <div class="post-thumb">
                         <img src="@/assets/images/19.jpg" alt="img" class="img-fluid">
                     </div>
-                    <h3 class="my-4">{{props}} <br> {{post.title}}</h3>
+                    <h3 class="my-4">{{test}}<br> {{post.title}}</h3>
                     <p class="post-entry">
                         {{post.body}}
                     </p>
@@ -151,21 +151,21 @@
 </template>
 
 <script>
-const api = "https://jsonplaceholder.typicode.com/posts/1";
+const api = "https://jsonplaceholder.typicode.com/posts/";
 import axios from "axios";
 
 export default {
-  name: "view",
+  name: "viewpage",
+  props: ["id"],
   data() {
     return {
-      //routeId: $route.params.id,
-      post: [],
-      props: ["id"]
+      test: "post - " + this.id,
+      post: []
     };
   },
   created() {
     axios
-      .get(api)
+      .get(api + this.id)
       .then(response => {
         this.post = response.data;
       })

@@ -1,8 +1,8 @@
 <template>
   <div class="listing">
     <div class="row mx-0">
-        <div class="col-md-5 p-0">
-			<Map/>
+        <div class="col-md-5 p-0" style="min-height: 100vh;">
+					 <LeafMap/>
         </div>
         <div class="col-md-7 py-5 light-bg" style="min-height:100vh;">
 
@@ -35,8 +35,8 @@
               <h5 class="mb-5">5 Results For <strong>"Restaurant"</strong></h5>
 			   <div class="row">
 				<div class="col-md-4 featured-responsive mb-4" v-for="(item, key) in list" v-bind:key="item.id">
-					<div class="featured-place-wrap wow fadeInUp">
-						 <router-link :to="{ name: 'view', params: { userId: key + 1 }}">
+					<div class="featured-place-wrap wow fadeInUp" @mouseover="touchLocation(key + 1)">
+						 <router-link :to="{ name: 'view', params: { id: key + 1 }}">
 							<img src="@/assets/images/featured1.jpg" class="img-fluid" alt="#">
 							<span class="featured-rating-orange">6.5</span>
 							<div class="featured-title-box">
@@ -88,7 +88,8 @@
 import InfiniteLoading from "vue-infinite-loading";
 import axios from "axios";
 
-import Map from "@/components/Layout/Map.vue";
+//import Map from "@/components/Layout/Map.vue";
+import LeafMap from "@/components/Layout/MapLeaflet.vue";
 
 const api = "http://hn.algolia.com/api/v1/search_by_date?tags=story";
 
@@ -100,6 +101,7 @@ export default {
       tag: "story"
     };
   },
+  props: ["postIdCroods"],
   methods: {
     infiniteHandler($state) {
       axios
@@ -126,8 +128,12 @@ export default {
       this.$nextTick(() => {
         this.$refs.infiniteLoading.$emit("$InfiniteLoading:reset");
       });
+    },
+    touchLocation: function(croods) {
+      this.postIdCroods = croods;
+      this.$emit(this.postIdCroods);
     }
   },
-  components: { InfiniteLoading, Map }
+  components: { InfiniteLoading, LeafMap }
 };
 </script>
