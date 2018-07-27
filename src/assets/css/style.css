@@ -792,3 +792,12 @@ footer {
   color: #aaa;
   border: 0;
 }
+
+@keyframes fade {
+  from {
+    opacity: 0.5;
+  }
+}
+.blinking {
+  animation: fade 1s infinite alternate;
+}
