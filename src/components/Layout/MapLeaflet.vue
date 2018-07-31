@@ -1,20 +1,9 @@
 <template>
-<div>
-  <div>
-    <p>You chose {{ $store.getters.findCroodId }} - {{findCroodId}}</p>
-  </div>
-<!-- <div id="myLeafMap" class="col-md-5 p-0">
+  <!-- <p>You chose {{ $store.getters.findCroodId }} - {{findCroodId}}</p>
+ <div id="myLeafMap" class="col-md-5 p-0">
     <p>Map will load here...</p>
 </div> -->
-
-<a id="marker_1" href="#">Marker 1</a>
-<br>
-<a id="marker_2" href="#">Marker 2</a>
-<br>
-<a id="marker_3" href="#">Marker 3</a>
 <div id="map" class="col-md-5 p-0"></div>
-
-</div>
 </template>
 
 <script>
@@ -43,6 +32,7 @@ export default {
         //marker.bounce();
         // marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
         //this.removeLayer();
+        //this.markerFunction($(this)[0].id);
       } else {
         console.log("No Post");
       }
@@ -92,7 +82,7 @@ export default {
             {
               id: 5,
               name: "The Shaved Duck",
-              type: "marker",
+              type: "marker_3",
               coords: [8.5527, 76.895431]
             },
             {
@@ -104,13 +94,13 @@ export default {
             {
               id: 7,
               name: "Zia's Restaurant",
-              type: "marker",
+              type: "marker_2",
               coords: [8.557114, 76.909673]
             },
             {
               id: 8,
               name: "Anthonio's Taverna",
-              type: "marker",
+              type: "marker_1",
               coords: [8.557114, 76.881704]
             }
           ]
@@ -126,36 +116,24 @@ export default {
       attribution: "Map data © OpenStreetMap contributors"
     });
     map.addLayer(osmLayer);
-
+    var markers = [];
     //this section sets the behavior of the markers themselves
-    var marker1 = L.marker([51.497, -0.09], {
-      title: "marker_1"
-    })
-      .addTo(map)
-      .bindPopup("Marker 1")
-      .on("click", clickZoom);
-    var marker2 = L.marker([51.495, -0.083], {
-      title: "marker_2"
-    })
-      .addTo(map)
-      .bindPopup("Marker 2")
-      .on("click", clickZoom);
-    var marker3 = L.marker([51.49, -0.097], {
-      title: "marker_3"
-    })
-      .addTo(map)
-      .bindPopup("Marker 3")
-      .on("click", clickZoom);
 
+    //var coords=[];
+    for (var i = 0; i < this.layers[0].features.length; i++) {
+      var marker1 = L.marker(this.layers[0].features[i].coords, {
+        title: this.layers[0].features[i].id
+      })
+        .addTo(map)
+        .bindPopup(this.layers[0].features[i].name)
+        .on("click", clickZoom);
+      markers.push(marker1);
+    }
     function clickZoom(e) {
       map.setView(e.target.getLatLng(), 15);
     }
 
     //everything below here controls interaction from outside the map
-    var markers = [];
-    markers.push(marker1);
-    markers.push(marker2);
-    markers.push(marker3);
 
     function markerFunction(id) {
       for (var i in markers) {
@@ -167,7 +145,7 @@ export default {
         }
       }
     }
-    $("a").click(function() {
+    $(".postWraper").click(function() {
       markerFunction($(this)[0].id);
     });
 
